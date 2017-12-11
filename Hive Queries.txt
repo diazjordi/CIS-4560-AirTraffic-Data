@@ -1,0 +1,26 @@
+Hive Queries
+
+
+TABLE CREATION
+
+CREATE EXTERNAL TABLE IF NOT EXISTS AirtrafficData
+(
+	year INT,month INT,day_of_month INT,day_of_week INT,unique_carrier STRING,tail_num STRING,fl_num STRING,origin_airport_id STRING,dest_airport_id STRING,dest STRING,crs_dep_time INT,dep_time INT,dep_delay INT,taxi_out INT,taxi_in INT,crs_arr_time INT,arr_time INT,arr_delay INT,cancelled INT,cancellation_code CHAR(1),diverted INT,crs_elapsed_time INT,actual_elapsed_time INT,air_time INT,carrier_delay INT,weather_delay INT,nas_delay INT,security_delay INT,late_aircraft_delay INT
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+location '/user/<username>/<data directory>';
+
+CREATE EXTERNAL TABLE IF NOT EXISTS IDs
+(
+    Code STRING,	 
+    City STRING,	
+    Location STRING,	
+    Name String
+)
+COMMENT 'Airport Codes to Cities/Airports'
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+location '/user/<username>/<data directory>';
